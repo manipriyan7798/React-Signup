@@ -3,11 +3,15 @@ import { useState } from "react";
 import "./Signup.css";
 
 const Signup = () => {
-  const [state, setState] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
 
   const printValue = (e) => {
     e.preventDefault();
-    console.log(setState(e.target.value));
+    console.log(firstName, lastName, email, userName, password);
   };
 
   return (
@@ -18,20 +22,28 @@ const Signup = () => {
         <FormGroup>
           <TextField
             sx={{ m: 1.5 }}
+            onChange={(e) => setFirstName(e.target.value)}
             // value={state}
-            id="first-name"
+            id="First-name"
             label="First Name"
             type="text"
           />
 
           <TextField
             sx={{ m: 1.5 }}
+            onChange={(e) => setLastName(e.target.value)}
             id="last-name"
             label="Last Name"
             type="text"
           />
 
-          <TextField sx={{ m: 1.5 }} id="e-mail" label="E-mail" type="email" />
+          <TextField
+            sx={{ m: 1.5 }}
+            id="e-mail"
+            onChange={(e) => setEmail(e.target.value)}
+            label="E-mail"
+            type="email"
+          />
           <TextField
             sx={{ m: 1.5 }}
             id="confirm-email"
@@ -40,6 +52,7 @@ const Signup = () => {
           />
           <TextField
             sx={{ m: 1.5 }}
+            onChange={(e) => setUserName(e.target.value)}
             id="user-name"
             label="UserName"
             type="email"
@@ -48,6 +61,7 @@ const Signup = () => {
           <TextField
             sx={{ m: 1.5 }}
             id="outlined-password-input"
+            onChange={(e) => setPassword(e.target.value)}
             label="Password"
             type="password"
           />
